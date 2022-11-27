@@ -1,8 +1,9 @@
 from pydantic import BaseModel
 from typing import Optional
 
-class User(BaseModel):
+class Alumno(BaseModel):
     id: Optional[str]
-    name: str
+    rut: str
+    nombre: str
     email: str
     password: str

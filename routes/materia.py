@@ -18,7 +18,7 @@ def create_materia(materia: Materia):
     result = conn.execute(materias.insert().values(new_materia))
     return conn.execute(materias.select().where(materias.c.id == result.lastrowid)).first()
 
-@materia.get("/materia/{id}", response_model=Materia, tags=["Materias"])
+@materia.get("/materias/{id}", response_model=Materia, tags=["Materias"])
 def get_materia(id: str):
     return conn.execute(materias.select().where(materias.c.id == id)).first()
 
@@ -28,6 +28,6 @@ def delete_materia(id: str):
     return Response(status_code=HTTP_204_NO_CONTENT)
 
 @materia.put("/materias/{id}", response_model=Materia, tags=["Materias"])
-def update_user(id: str, materia: Materia):
+def update_materia(id: str, materia: Materia):
     conn.execute(materias.update().values(nombre=materia.nombre).where(materias.c.id == id))
     return conn.execute(materias.select().where(materias.c.id == id)).first()

@@ -1,10 +1,11 @@
 from sqlalchemy import Table, Column
 from config.db import meta,engine
-from sqlalchemy.sql.sqltypes import Integer, String
+from sqlalchemy.sql.sqltypes import Integer, String, VARCHAR
 
-users = Table("users", meta, Column(
+alumnos = Table("alumnos", meta, Column(
     "id", Integer, primary_key=True), 
-    Column("name", String(255)), 
+    Column("rut", VARCHAR(9)),
+    Column("nombre", String(255)), 
     Column("email", String(255)), 
     Column("password", String(255)))
 
