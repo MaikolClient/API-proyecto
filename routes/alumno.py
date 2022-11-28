@@ -36,6 +36,6 @@ def delete_alumno(id: str):
 
 @alumno.put("/alumnos/{id}", response_model=Alumno, tags=["Alumnos"])
 def update_alumno(id: str, alumno: Alumno):
-    conn.execute(alumnos.update().values(name=alumno.name, email=alumno.email,
+    conn.execute(alumnos.update().values(nombre=alumno.nombre, email=alumno.email,
                  password=f.encrypt(alumno.password.encode("utf-8"))).where(alumnos.c.id == id))
     return conn.execute(alumnos.select().where(alumnos.c.id == id)).first()

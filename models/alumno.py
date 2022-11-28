@@ -4,7 +4,7 @@ from sqlalchemy.sql.sqltypes import Integer, String, VARCHAR
 
 alumnos = Table("alumnos", meta, Column(
     "id", Integer, primary_key=True), 
-    Column("rut", VARCHAR(9)),
+    Column("rut", String(9)),
     Column("nombre", String(255)), 
     Column("email", String(255)), 
     Column("password", String(255)))
